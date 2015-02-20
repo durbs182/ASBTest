@@ -69,17 +69,22 @@ namespace SBTest
             //var client = QueueClient.CreateFromConnectionString(connectionString, qName);
             //client.
 
-            while (true)
+            try
             {
-                var msg = client.Receive(TimeSpan.FromSeconds(1));
 
-                if (msg != null)
+                while (true)
                 {
-                    var body = msg.GetBody<string>();
-                    Console.WriteLine("{0}", msg.MessageId);
-                    msg.Complete();
+                    var msg = client.Receive(TimeSpan.FromSeconds(1));
+
+                    if (msg != null)
+                    {
+                        var body = msg.GetBody<string>();
+                        Console.WriteLine("{0}", msg.MessageId);
+                        msg.Complete();
+                    }
                 }
             }
+            catch { }
         }
     }
 }
