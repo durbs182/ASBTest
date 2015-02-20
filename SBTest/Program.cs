@@ -60,7 +60,7 @@ namespace SBTest
                 TokenProvider = namespaceManager.Settings.TokenProvider
             };
 
-            var address = ServiceBusEnvironment.CreateServiceUri("sb", "rtstvdadf-ne", string.Empty);
+            var address = ServiceBusEnvironment.CreateServiceUri("sb", "xxxxxxx", string.Empty);
 
             var messagingFactory = MessagingFactory.Create(address, settings);
 
